@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="com" extends="struts-default">
+	
+		<global-results>
+	   		<result name="exception">/admin/common/jsp/exception.jsp</result>
+	   		<result name="fail">/admin/common/jsp/fail.jsp</result>
+	   		<result name="error">/admin/common/jsp/error.jsp</result>
+	   	</global-results>
+	   	
+	   	
+	   	<global-exception-mappings>
+	   		<exception-mapping result="exception" exception="java.lang.Exception"></exception-mapping>
+	   	</global-exception-mappings>
+	      
+	   	<action name="pageAction" class="com.gdzc.dev.web.action.PageAction">
+	   	 	<result name="SUCCESS">/page/jsp/MyJsp.jsp</result>
+	   	</action>
+   	
+    </package>
+    
+</struts>

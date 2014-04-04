@@ -1,0 +1,114 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+  	<!-- 创建数据源,使用Apache的dbcp数据源工具   Orcle配置 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+        <property name="url" value="jdbc:oracle:thin:@localhost:1521:myorcl"/>
+		<property name="username" value="XXXX"/>
+		<property name="password" value="xxxxxxxx"/>
+		<property name="maxActive" value="30"/>
+		<property name="maxIdle" value="8"/>
+		<property name="maxWait" value="3000"/>
+	</bean>   
+	
+	<!-- 创建sessionFactory 在<beans></beans>中加入-->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		
+		<!-- 配置hibernate属性 -->
+		<property name="hibernateProperties">
+			<props>
+				<!-- 根据数据库配置相应的hibernate方言，各种数据库的方言不同 --> 
+				<prop key="hibernate.dialect">
+				      org.hibernate.dialect.OracleDialect		
+				</prop>
+				<!-- 事务是否自动提交 -->
+				<prop key="hibernate.connection.autocommit">true</prop>
+				
+				<!-- 显示sql语句 -->
+				<prop key="hibernate.show_sql">true</prop>
+				
+				<!-- 解决提交乱码问题 -->
+				<prop key="connection.useUnicode">true</prop>
+				<prop key="connection.characterEncoding">UTF-8</prop>
+				
+				<!-- 格式化sql语句 -->
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.order_updates">true</prop>
+				
+				<!-- 事务自动管理 -->
+				<prop key="hibernate.connection.release_mode">
+					after_transaction
+				</prop>
+				
+			</props>
+		</property>
+		
+		<!-- 配置pojo和数据库的关系映射文件 -->  
+		<property name="mappingResources">
+			<list>
+				<value>com/gdzc/dev/web/dao/po/TbRole.hbm.xml</value>
+				<value>com/gdzc/dev/web/dao/po/TbAssetinfo.hbm.xml</value>
+				<value>com/gdzc/dev/web/dao/po/TbRecord.hbm.xml</value>
+				<value>com/gdzc/dev/web/dao/po/TbAlimits.hbm.xml</value>
+				<value>com/gdzc/dev/web/dao/po/TbUser.hbm.xml</value>
+				<value>com/gdzc/dev/web/dao/po/TbRights.hbm.xml</value>
+				<value>com/gdzc/dev/web/dao/po/TbStaff.hbm.xml</value>
+				<value>com/gdzc/dev/web/dao/po/TbBlimits.hbm.xml</value>
+				<value>com/gdzc/dev/web/dao/po/TbDept.hbm.xml</value>
+				<value>com/gdzc/dev/web/dao/po/TbAsset.hbm.xml</value>
+				<value>com/gdzc/dev/web/dao/po/TbRfid.hbm.xml</value>
+			</list>
+		</property> 
+	</bean>
+	
+	<!--  创建事务管理器创建 
+	sessionFactory之后，增加事务管理器代码：如下-->
+	<!-- 创建事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<!-- 创建事务拦截器
+	创建事务管理器之后，增加事务拦截器代码：如下-->
+	<!-- 创建事务拦截器 -->
+	<bean id="transactionInterceptor"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<!--  事务拦截器bean需要依赖注入一个事务管理器 -->
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<!--  下面定义事务传播属性-->
+			<props>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="query*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 创建BeanNameAutoProxyCreator -->
+	
+   <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<!--  指定对满足哪些bean name的bean自动生成业务代理 -->
+		<property name="beanNames">
+			<!--  下面是所有需要自动创建事务代理的bean-->
+			<list>
+				<value>ipagerService</value>
+			</list>
+			<!--  此处可增加其他需要自动创建事务代理的bean-->
+		</property>
+		<!--  下面定义BeanNameAutoProxyCreator所需的事务拦截器-->
+		<property name="interceptorNames">
+			<list>
+				<!-- 此处可增加其他新的Interceptor -->
+				<value>transactionInterceptor</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="ipagerService" 
+		class="com.gdzc.dev.web.service.impl.PagerServiceImpl">
+	</bean>
+</beans>

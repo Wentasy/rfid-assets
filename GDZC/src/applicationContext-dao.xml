@@ -1,0 +1,101 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<!-- 一级权限Dao层 -->
+	<bean name="tbAlimitsDao"
+		class="com.gdzc.dev.web.dao.impl.TbAlimitsDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>	
+	
+	<!-- 二级权限Dao层 -->
+	<bean name="tbBlimitsDao"
+		class="com.gdzc.dev.web.dao.impl.TbBlimitsDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 角色Dao层 -->
+	<bean name="tbRoleDao"
+		class="com.gdzc.dev.web.dao.impl.TbRoleDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 用户Dao层 -->
+	<bean name="tbUserDao"
+		class="com.gdzc.dev.web.dao.impl.TbUserDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+
+	<!-- 系统用户登录Dao -->
+	<bean id="loginDao"
+		class="com.gdzc.dev.web.dao.impl.LoginDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 角色权限Dao -->
+	<bean id="tbRightsDao"
+		class="com.gdzc.dev.web.dao.impl.TbRightsDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 资产信息Dao -->
+	<bean id="tbAssetinfoDao"
+		class="com.gdzc.dev.web.dao.impl.TbAssetinfoDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 资产Dao -->
+	<bean id="tbAssetDao"
+		class="com.gdzc.dev.web.dao.impl.TbAssetDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- 部门Dao -->
+	<bean id="tbDeptDao"
+		class="com.gdzc.dev.web.dao.impl.TbDeptDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>	
+	
+	<!-- 员工Dao -->
+	<bean id="tbStaffDao"
+		class="com.gdzc.dev.web.dao.impl.TbStaffDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>	
+	
+	<!-- RFID Dao -->
+	<bean id="tbRfidDao"
+		class="com.gdzc.dev.web.dao.impl.TbRfidDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>	
+	
+	<!-- 资产记录Dao -->
+	<bean id="tbRecordDao"
+		class="com.gdzc.dev.web.dao.impl.TbRecordDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>	
+</beans>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<constant name="struts.custom.i18n.resources" value="UTF-8"/>
+	<constant name="struts.locale" value="zh_CN"/>
+	<constant name= "struts.multipart.maxSize" value="99999991474985"/>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.multipart.saveDir" value="/tmp"/>
+	
+	<include file="struts-wgb.xml"></include>
+	<include file="struts-com.xml"></include>
+	<include file="struts-zjm.xml"></include>
+	
+</struts>

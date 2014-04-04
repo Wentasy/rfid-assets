@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="zjm" extends="struts-default">
+		<!-- 资产信息action -->
+		<action name="assetinfoAction"
+			class="com.gdzc.dev.web.action.TbAssetinfoAction">
+			<result name="success">/admin/jsp/assetinfo/createAssetinfo.jsp</result>
+			<result name="createAssetinfoFalse">/admin/jsp/assetinfo/createAssetinfo.jsp</result>
+			<result name="queryAllAssetinfoSUCCESS">/admin/jsp/assetinfo/queryAllAssetinfo.jsp</result>
+			<result name="queryAssetinfoByIdSUCCESS">/admin/jsp/assetinfo/updateAssetinfo.jsp</result>
+			<result name="queryAssetinfoByNameSUCCESS">/admin/jsp/assetinfo/queryAllAssetinfo.jsp</result>
+		</action>
+		<!-- 资产action -->
+		<action name="assetAction" 
+		class="com.gdzc.dev.web.action.TbAssetAction">
+			<result name="success">/admin/jsp/asset/createAsset.jsp</result>
+			<result name="createAssetFalse">/admin/jsp/asset/createAsset.jsp</result>
+			<result name="queryAllAssetSUCCESS">/admin/jsp/asset/queryAllAsset.jsp</result>
+			<result name="queryAssetByIdSUCCESS">/admin/jsp/asset/updateAsset.jsp</result>
+			<result name="queryAssetByNumberSUCCESS">/admin/jsp/asset/queryAllAsset.jsp</result>
+		</action>
+		<!-- 部门action -->
+		<action name="deptAction" 
+		class="com.gdzc.dev.web.action.TbDeptAction">
+			<result name="createDeptFalse">/admin/jsp/dept/createDept.jsp</result>
+			<result name="queryAllDeptSUCCESS">/admin/jsp/dept/queryAllDept.jsp</result>
+			<result name="queryDeptByIdSUCCESS">/admin/jsp/dept/updateDept.jsp</result>
+			<result name="queryDeptByNameSUCCESS">/admin/jsp/dept/updateDept.jsp</result>
+		</action>
+		
+		<!-- RFID action -->
+		<action name="rfidAction" 
+		class="com.gdzc.dev.web.action.TbRfidAction">
+			<result name="queryAllRfidSUCCESS">/admin/jsp/rfid/queryAllRfid.jsp</result>
+			<result name="queryRfidByIdSUCCESS">/admin/jsp/rfid/updateRfid.jsp</result>
+		</action>
+	</package>
+</struts>

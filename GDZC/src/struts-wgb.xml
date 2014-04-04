@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<package name="wgb" extends="struts-default">
+	
+	 <!-- 角色Action -->
+        <action name="roleAction" class="com.gdzc.dev.web.action.TbRoleAction">
+          	<result name="queryAllRoleSuccess">/admin/jsp/role/queryAllRole.jsp</result>
+			<result name="queryRoleByIdSuccess">/admin/jsp/role/updateRole.jsp</result>
+		</action>
+		
+		<!-- 用户Action -->
+		<action name="userAction" class="com.gdzc.dev.web.action.TbUserAction">
+			<result name="SUCCESS">/admin/jsp/user/createUser.jsp</result>
+			<result name="queryAllUserSuccess">/admin/jsp/user/queryAllUser.jsp</result>
+			<result name="queryUserByIdSuccess">/admin/jsp/user/updateUser.jsp</result>
+			<result name="queryAllUserByRIdSuccess">/admin/jsp/user/queryAllUser.jsp</result>
+		</action>
+		
+		<!-- 系统用户登录 -->
+		<action name="Login" class="com.gdzc.dev.web.action.TbUserLoginAction">
+			<result name="pass">/admin/frame/index.jsp</result>
+			<result name="login">/admin/jsp/login/login.jsp</result>
+			<result name="logout">/admin/jsp/login/login.jsp</result>
+		</action>
+		
+		
+		<!--一级权限action  -->
+		<action name="alimitsAction" class="com.gdzc.dev.web.action.TbAlimitsAction">
+			<result name="QueryAllAlimitsSUCCESS">/admin/jsp/limits/queryAllAlimits.jsp</result>
+			<result name="createFalse">/admin/jsp/limits/createAlimits.jsp</result>
+			<result name="queryAlimitsByIdSuccess">/admin/jsp/limits/updateAlimits.jsp</result>
+		</action>
+		
+		<!-- 二级权限Action -->
+        <action name="blimitsAction" class="com.gdzc.dev.web.action.TbBlimitsAction">
+			<result name="QueryAllBlimits">/admin/jsp/limits/queryAllBlimits.jsp</result>
+          	<result name="queryBlimitsById">/admin/jsp/limits/updateBlimits.jsp</result>
+          	<result name="SUCCESS">/admin/jsp/limits/createBlimits.jsp</result>
+		</action>
+		
+		<!-- 角色权限Action-->
+		<action name="rightsAction" class="com.gdzc.dev.web.action.TbRightsAction">
+			<result name="readSUCCESS">/admin/jsp/role/allrights.jsp</result>
+			<result name="modefySUCCESS">/admin/jsp/role/success.jsp</result>
+		</action>
+		
+		
+		<!-- 员工Action -->
+		<action name="staffAction" class="com.gdzc.dev.web.action.TbStaffAction">
+			<result name="SUCCESS">/admin/jsp/staff/createStaff.jsp</result>
+			<result name="queryAllStaffSuccess">/admin/jsp/staff/queryAllStaff.jsp</result>
+			<result name="queryStaffByIdSuccess">/admin/jsp/staff/updateStaff.jsp</result>
+			<result name="queryAllSatffByIdSuccess">/admin/jsp/staff/queryAllStaff.jsp</result>
+		</action>
+		
+		<!-- 资产记录Action -->
+		<action name="recordAction" class="com.gdzc.dev.web.action.TbRecordAction">
+			<result name="SUCCESS">/admin/jsp/record/createRecord.jsp</result>
+			<result name="queryAllRecordSUCCESS">/admin/jsp/record/queryAllRecord.jsp</result>
+			<result name="queryRecordByIdSUCCESS">/admin/jsp/record/createRecord.jsp</result>
+			<result name="queryRecordByTypeSUCCESS">/admin/jsp/record/queryAllRecord.jsp</result>
+		</action>
+		
+		<!-- 查询Action -->
+		<action name="queryAction" class="com.gdzc.dev.web.action.QueryAction">
+			<result name="SUCCESS">/admin/jsp/query/query.jsp</result>
+			<result name="queryFalse">/admin/jsp/query/queryFalse.jsp</result>
+			
+			<!-- 资产 -->
+			<result name="queryAllAssetSUCCESS">/admin/jsp/query/queryAllAsset.jsp</result>
+			
+			<!--  
+			<result name="queryAssetByNumberSUCCESS">/admin/jsp/query/queryAsset.jsp</result>
+			<result name="queryAssetByStateSUCCESS">/admin/jsp/query/queryAsset.jsp</result>
+			<result name="queryAssetByRemarkSUCCESS">/admin/jsp/query/queryAsset.jsp</result>
+			-->
+			
+			<!-- 资产信息 -->
+			<result name="queryAllAssetinfoSUCCESS">/admin/jsp/query/queryAllAssetinfo.jsp</result>
+			<!--  
+			<result name="queryAssetinfoByNameSUCCESS">/admin/jsp/query/queryAssetinfo.jsp</result>
+			<result name="queryAssetinfoByStaffSUCCESS">/admin/jsp/query/queryAssetinfo.jsp</result>
+			<result name="queryAssetinfoByBuyDateSUCCESS">/admin/jsp/query/queryAssetinfo.jsp</result>
+			<result name="queryAssetinfoByPlaceSUCCESS">/admin/jsp/query/queryAssetinfo.jsp</result>
+			<result name="queryAssetinfoByCompSUCCESS">/admin/jsp/query/queryAssetinfo.jsp</result>
+			<result name="queryAssetinfoByProDateSUCCESS">/admin/jsp/query/queryAssetinfo.jsp</result>
+			<result name="queryAssetinfoByPriceSUCCESS">/admin/jsp/query/queryAssetinfo.jsp</result>
+			<result name="queryAssetinfoByRemarkSUCCESS">/admin/jsp/query/queryAssetinfo.jsp</result>
+			-->
+			
+			<!-- 资产记录 -->
+			<result name="queryAllRecordSUCCESS">/admin/jsp/query/queryAllRecord.jsp</result>
+			<!-- 
+			<result name="queryRecordByTypeSUCCESS">/admin/jsp/query/queryRecord.jsp</result>
+			<result name="queryRecordByHandUserSUCCESS">/admin/jsp/query/queryRecord.jsp</result>
+			<result name="queryRecordByUseUserSUCCESS">/admin/jsp/query/queryRecord.jsp</result>
+			<result name="queryRecordByPlaceSUCCESS">/admin/jsp/query/queryRecord.jsp</result>
+			<result name="queryRecordByRemarkSUCCESS">/admin/jsp/query/queryRecord.jsp</result>
+			<result name="queryRecordBySDateSUCCESS">/admin/jsp/query/queryRecord.jsp</result>
+			<result name="queryRecordByEDateSUCCESS">/admin/jsp/query/queryRecord.jsp</result>
+			 -->
+			 <!-- rfid -->
+			 <result name="queryAllRfidSUCCESS">/admin/jsp/query/queryAllRfid.jsp</result>
+		</action>
+	</package>
+</struts>

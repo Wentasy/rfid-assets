@@ -1,0 +1,123 @@
+ <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	
+	<!-- 一级权限action -->
+	<bean name="alimitsAction"
+		class="com.gdzc.dev.web.action.TbAlimitsAction">
+		<property name="tbAlimitsService">
+			<ref bean="tbAlimitsService" />
+		</property>
+	</bean>
+	
+	<!-- 二级权限action -->
+	<bean name="blimitsAction"
+		class="com.gdzc.dev.web.action.TbBlimitsAction">
+		<property name="tbBlimitsService">
+			<ref bean="tbBlimitsService" />
+		</property>
+	</bean>
+	
+	<!-- 角色action -->
+	<bean name="roleAction"
+		class="com.gdzc.dev.web.action.TbRoleAction">
+		<property name="tbRoleService">
+			<ref bean="tbRoleService" />
+		</property>
+	</bean>
+
+	<!-- 用户action -->
+	<bean name="userAction"
+		class="com.gdzc.dev.web.action.TbUserAction">
+		<property name="tbUserService">
+			<ref bean="tbUserService" />
+		</property>
+		<property name="tbRoleService">
+			<ref bean="tbRoleService" />
+		</property>
+	</bean>
+
+	<!-- 系统用户登录Action -->
+	<bean id="Login"
+		class="com.gdzc.dev.web.action.TbUserLoginAction">
+		<property name="loginService">
+			<ref bean="loginService" />
+		</property>
+	</bean>
+
+	
+	<!-- 角色权限Action -->
+	<bean id="rightsAction"
+		class="com.gdzc.dev.web.action.TbRightsAction">
+		<property name="tbRightsService">
+			<ref bean="tbRightsService" />
+		</property>
+		<property name="tbAlimitsService">
+			<ref bean="tbAlimitsService" />
+		</property>
+		<property name="tbRoleService">
+			<ref bean="tbRoleService" />
+		</property>
+		<property name="tbBlimitsService">
+			<ref bean="tbBlimitsService" />
+		</property>
+	</bean>
+	
+	<!-- 资产信息action -->
+	<bean id="assetinfoAction"
+		class="com.gdzc.dev.web.action.TbAssetinfoAction">
+		<property name="tbAssetinfoService">
+			<ref bean="tbAssetinfoService" />
+		</property>
+	</bean>
+	
+	<!-- 资产action -->
+	<bean id="assetAction"
+		class="com.gdzc.dev.web.action.TbAssetAction">
+		<property name="tbAssetService">
+			<ref bean="tbAssetService" />
+		</property>
+	</bean>
+	
+	<!-- 部门action -->
+	<bean id="deptAction"
+		class="com.gdzc.dev.web.action.TbDeptAction">
+		<property name="tbDeptService">
+			<ref bean="tbDeptService" />
+		</property>
+	</bean>
+	
+	<!-- 员工action -->
+	<bean id="staffAction"
+		class="com.gdzc.dev.web.action.TbStaffAction">
+		<property name="tbStaffService">
+			<ref bean="tbStaffService" />
+		</property>
+		<property name="tbDeptService">
+			<ref bean="tbDeptService" />
+		</property>
+	</bean>
+	
+	<!-- 资产记录action -->
+	<bean id="recordAction"
+		class="com.gdzc.dev.web.action.TbRecordAction">
+		<property name="tbRecordService">
+			<ref bean="tbRecordService" />
+		</property>
+		<property name="tbStaffService">
+			<ref bean="tbStaffService" />
+		</property>
+		<property name="tbAssetinfoService">
+			<ref bean="tbAssetinfoService" />
+		</property>
+	</bean>
+	
+	<!-- RFID action -->
+	<bean id="rfidAction"
+		class="com.gdzc.dev.web.action.TbRfidAction">
+		<property name="tbRfidService">
+			<ref bean="tbRfidService" />
+		</property>
+	</bean>
+</beans>

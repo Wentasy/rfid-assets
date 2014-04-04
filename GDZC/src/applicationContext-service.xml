@@ -1,0 +1,101 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<!-- 一级权限service -->
+	<bean name="tbAlimitsService"
+		class="com.gdzc.dev.web.service.impl.TbAlimitsServiceImpl">
+		<property name="tbAlimitsDao">
+			<ref bean="tbAlimitsDao" />
+		</property>
+	</bean>
+	
+	<!-- 二级权限service -->
+	<bean name="tbBlimitsService"
+		class="com.gdzc.dev.web.service.impl.TbBlimitsServiceImpl">
+		<property name="tbBlimitsDao">
+			<ref bean="tbBlimitsDao" />
+		</property>
+	</bean>
+	
+	<!-- 角色service -->
+	<bean name="tbRoleService"
+		class="com.gdzc.dev.web.service.impl.TbRoleServiceImpl">
+		<property name="tbRoleDao">
+			<ref bean="tbRoleDao" />
+		</property>
+	</bean>
+
+	<!-- 用户service -->
+	<bean name="tbUserService"
+		class="com.gdzc.dev.web.service.impl.TbUserServiceImpl">
+		<property name="tbUserDao">
+			<ref bean="tbUserDao" />
+		</property>
+	</bean>
+
+
+	<!-- 系统用户登录service -->
+	<bean id="loginService"
+		class="com.gdzc.dev.web.service.impl.LoginServiceImpl">
+		<property name="loginDao">
+			<ref bean="loginDao" />
+		</property>
+	</bean>
+
+	<!-- 角色权限service -->
+	<bean id="tbRightsService"
+		class="com.gdzc.dev.web.service.impl.TbRightsServiceImpl">
+		<property name="tbRightsDao">
+			<ref bean="tbRightsDao" />
+		</property>
+	</bean>
+	
+	<!-- 资产信息service -->
+	<bean id="tbAssetinfoService"
+		class="com.gdzc.dev.web.service.impl.TbAssetinfoServiceImpl">
+		<property name="tbAssetinfoDao">
+			<ref bean="tbAssetinfoDao" />
+		</property>
+	</bean>
+	
+	<!-- 资产service -->
+	<bean id="tbAssetService"
+		class="com.gdzc.dev.web.service.impl.TbAssetServiceImpl">
+		<property name="tbAssetDao">
+			<ref bean="tbAssetDao" />
+		</property>
+	</bean>
+	
+	<!-- 部门service -->
+	<bean id="tbDeptService"
+		class="com.gdzc.dev.web.service.impl.TbDeptServiceImpl">
+		<property name="tbDeptDao">
+			<ref bean="tbDeptDao" />
+		</property>
+	</bean>
+	
+	<!-- 员工service -->
+	<bean id="tbStaffService"
+		class="com.gdzc.dev.web.service.impl.TbStaffServiceImpl">
+		<property name="tbStaffDao">
+			<ref bean="tbStaffDao" />
+		</property>
+	</bean>
+	
+	<!-- RFID service -->
+	<bean id="tbRfidService"
+		class="com.gdzc.dev.web.service.impl.TbRfidServiceImpl">
+		<property name="tbRfidDao">
+			<ref bean="tbRfidDao" />
+		</property>
+	</bean>
+	
+	<!-- 资产记录service -->
+	<bean id="tbRecordService"
+		class="com.gdzc.dev.web.service.impl.TbRecordServiceImpl">
+		<property name="tbRecordDao">
+			<ref bean="tbRecordDao" />
+		</property>
+	</bean>
+</beans>
