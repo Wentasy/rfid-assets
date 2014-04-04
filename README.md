@@ -13,4 +13,5 @@ RFID资产管理系统，通过RFID标签标识固定资产，并利用信息化
 说明：因版权原因只上传部分代码。<br/>
 
 因上传代码不能正常更新，故代码暂时存放在百度网盘，等待问题解决后及时上传到Github。<br/>
-网盘地址：<a href="http://pan.baidu.com/s/1pJwL2en">http://pan.baidu.com/s/1pJwL2en</a>
+
+2014年4月4日16:23:25更新：代码已经上传到Github。百度网盘的文件已删除。
