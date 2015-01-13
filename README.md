@@ -46,5 +46,5 @@ J2EE(Java/JSP/Struts2/Hibernate3/Spring3)、JavaScript、Web服务器(Tomcat)、
 
 * Robin Wen
 * Gmail：dbarobinwen@gmail.com
-* CSDN：http://blog.csdn.net/justdb
+* Blog：http://dbarobin.com
 * GitHub：https://github.com/dbarobin
