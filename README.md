@@ -45,6 +45,6 @@ J2EE(Java/JSP/Struts2/Hibernate3/Spring3)、JavaScript、Web服务器(Tomcat)、
 温国兵
 
 * Robin Wen
-* Gmail：dbarobinwen@gmail.com
+* Gmail：blockxyz@gmail.com
 * Blog：http://dbarobin.com
 * GitHub：https://github.com/dbarobin
