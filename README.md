@@ -7,7 +7,7 @@
 ## 更新日志 ##
 
 **2014-04-04**
-> 代码已经上传到Github。百度网盘的文件已删除。 
+> 代码已经上传到Github。百度网盘的文件已删除。
 
 **2014-11-17**
 > 文档版本为「1.0」，文档名为「RFID资产管理系统」，备注为「文档正式版」，By Robin。
@@ -41,8 +41,6 @@ J2EE(Java/JSP/Struts2/Hibernate3/Spring3)、JavaScript、Web服务器(Tomcat)、
 **因版权原因只上传部分代码。**
 
 ## 关于作者 ##
-
-温国兵
 
 * Robin Wen
 * Gmail：blockxyz@gmail.com
